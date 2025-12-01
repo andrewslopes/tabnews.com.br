@@ -1,13 +1,16 @@
 import { GoToTopButton } from '@tabnews/ui';
 
 import { Box, Footer, Header } from '@/TabNewsUI';
-import { Head } from 'pages/interface';
+import { Head, useKeyboardShortcuts } from 'pages/interface';
 
 export default function DefaultLayout({ children, containerWidth = 'large', metadata }) {
+  const { KeyboardShortcutsOverlay } = useKeyboardShortcuts();
+
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: 'canvas.default' }}>
       {metadata && <Head metadata={metadata} />}
       <Header />
+      <KeyboardShortcutsOverlay />
       <Box
         as="main"
         maxWidth={containerWidth}
